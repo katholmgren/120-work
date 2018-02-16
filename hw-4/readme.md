@@ -1,6 +1,6 @@
 Katherine Holmgren, 50
 
-["Self-Portrait"](file:///Users/Katie/Desktop/120-work/hw-4/index.html)
+["Self-Portrait"](https://katholmgren.github.io/120-work/hw-4/)
 
 # HW-4 Response
 
