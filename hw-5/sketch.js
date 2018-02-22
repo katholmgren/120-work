@@ -4,7 +4,7 @@
  */
 
 function setup() {
-    // createCanvas( windowWidth, windowHeight );
+    // createCanvas( windowWidth, 800 );
     createCanvas( windowWidth, 800);
     //set frame rate
     frameRate( 8 );
@@ -21,9 +21,7 @@ let personPosY = 400;
 
 
 function draw() {
-  //EMILY CHANGES
-  //angleMode(DEGREES);
-
+  
   // erase every frame
   background( 'rgb(154, 206, 235)' );
 
@@ -36,7 +34,7 @@ function draw() {
   // set the wheel to spin at a constant rate
   wheelAngle = wheelAngle - 3;
 
-  headSpeed = (mouseX * 0.009);
+  headSpeed = (mouseX * 0.005);
   // update head position,
   // to equal position plus mouse speed
   personPosX = personPosX + headSpeed;
@@ -91,10 +89,11 @@ push();
     wheelPosX = wheelPosX + 2;
     pop();
 
-    // END CAR WHEEL TWO **********************
+    // end CAR WHEEL TWO **********************
 
     // RUNNING PERSON *************************
     push();
+
     // head,
     // moving at rate of car
     fill('rgb( 254, 202, 182 )');
@@ -105,6 +104,7 @@ push();
     rect( personPosX - 5, personPosY + 25, 10, 25)
     personPosX = personPosX + 1
 
+    // LIMBS
     // leg 1
     line( personPosX - 5, personPosY + 50, personPosX -10, personPosY + 75 );
     // leg 2 thigh
@@ -117,7 +117,9 @@ push();
     // arm part 2
     line( personPosX + 10, personPosY + 35, personPosX + 15, personPosY + 20 );
 
-
     pop();
+
+    // end RUNNING PERSON **********************
+
 
 }
