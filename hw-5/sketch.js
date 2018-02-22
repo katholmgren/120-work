@@ -32,6 +32,11 @@ function draw() {
   // set the wheel to spin at a constant rate
   wheelAngle = wheelAngle - 3;
 
+  headSpeed = (mouseX * 0.01);
+  // update head position,
+  // to equal position plus mouse speed
+  personPosX = personPosX + headSpeed;
+
 
   // *****************************
   // CAR SANDBOX
@@ -83,7 +88,7 @@ push();
     // head,
     // moving at rate of car
     ellipse( personPosX, personPosY + 20, 10 );
-    personPosX = personPosX + 4
+    personPosX = personPosX + 3
 
 
     pop();
