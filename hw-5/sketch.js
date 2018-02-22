@@ -4,14 +4,15 @@
  */
 
 function setup() {
-    createCanvas( windowWidth, 800 );
     // createCanvas( windowWidth, windowHeight );
+    createCanvas( windowWidth, 800);
+    //set frame rate
     frameRate(10);
 
 }
 
-let carPosY = 400;
 let carPosX = 0;
+let carPosY = 400;
 let wheelRotationRate = 0;
 let wheelAngle = 0;
 
@@ -24,8 +25,8 @@ function draw() {
   background( 'rgb(154, 206, 235)' );
 
   // UPDATE VALUES
-  // base wheel rotation rate on mouseX pos
-  wheelRotationRate = 45;
+  // make wheel rotate at quarter pi per 10 frames
+  wheelRotationRate = QUARTER_PI;
   // update wheel angle,
   // to equal itself plus wheelRotationRate
   wheelAngle = wheelAngle + wheelRotationRate;
@@ -34,9 +35,10 @@ function draw() {
   // *****************************
   // CAR SANDBOX
   // *****************************
+
 push();
 
-    //car body
+    // CAR BODY *******************************
     push();
     rect( carPosX, height*.5, 100, 50 );
 
@@ -45,18 +47,22 @@ push();
     carPosX = carPosX + 2;
     pop();
 
-    //car wheel one
+    // end CAR BODY ***************************
+
+    // CAR WHEEL ONE **************************
     push();
     // rotate wheel based on wheelAngle
-    translate( carPosX, height*0.5 );
-    rotate( radians(wheelAngle) );
+    rotate( wheelAngle );
     ellipse( carPosX, carPosY + 50, 25, 10 );
-    // update angle position
-    wheelAngle = wheelAngle + 45;
     pop();
 
-    //car wheel two
+    // end CAR WHEEL ONE **********************
+
+
+
+    // CAR WHEEL TWO **************************
     push();
     ellipse( carPosX + 100, carPosY + 50, 25, 10 );
     pop();
+    // END CAR WHEEL TWO **********************
 }
