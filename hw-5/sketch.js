@@ -13,7 +13,8 @@ function setup() {
 
 let carPosX = 0;
 let carPosY = 400;
-let wheelRotationRate = 0;
+let wheelPosX = 0;
+let wheelPosY = 500;
 let wheelAngle = 0;
 
 
@@ -25,11 +26,9 @@ function draw() {
   background( 'rgb(154, 206, 235)' );
 
   // UPDATE VALUES
-  // make wheel rotate at quarter pi per 10 frames
-  wheelRotationRate = QUARTER_PI;
   // update wheel angle,
-  // to equal itself plus wheelRotationRate
-  wheelAngle = wheelAngle + wheelRotationRate;
+  // set the wheel to spin at a constant rate
+  wheelAngle = wheelAngle - 3;
 
 
   // *****************************
@@ -51,9 +50,13 @@ push();
 
     // CAR WHEEL ONE **************************
     push();
+    // move the position of the wheel
+    // to rotate
+    translate( carPosX, carPosY );
     // rotate wheel based on wheelAngle
     rotate( wheelAngle );
-    ellipse( carPosX, carPosY + 50, 25, 10 );
+    ellipse( 0, 0, 25, 10 );
+    wheelPosX = wheelPosX + 2;
     pop();
 
     // end CAR WHEEL ONE **********************
@@ -64,5 +67,6 @@ push();
     push();
     ellipse( carPosX + 100, carPosY + 50, 25, 10 );
     pop();
+
     // END CAR WHEEL TWO **********************
 }
