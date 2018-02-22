@@ -14,8 +14,10 @@ function setup() {
 let carPosX = 0;
 let carPosY = 400;
 let wheelPosX = 0;
-let wheelPosY = 500;
+let wheelPosY = 450;
 let wheelAngle = 0;
+let personPosX = 200;
+let personPosY = 400;
 
 
 function draw() {
@@ -39,11 +41,11 @@ push();
 
     // CAR BODY *******************************
     push();
-    rect( carPosX, height*.5, 100, 50 );
+    rect( carPosX, height*.5, 100, 50, 1, 20, 1, 1 );
 
     // update posX every frame
-    // add .2, then re-assign back to self
-    carPosX = carPosX + 2;
+    // add 2, then re-assign back to self
+    carPosX = carPosX + 4;
     pop();
 
     // end CAR BODY ***************************
@@ -52,7 +54,7 @@ push();
     push();
     // move the position of the wheel
     // to rotate
-    translate( carPosX, carPosY );
+    translate( wheelPosX, wheelPosY );
     // rotate wheel based on wheelAngle
     rotate( wheelAngle );
     ellipse( 0, 0, 25, 10 );
@@ -65,8 +67,25 @@ push();
 
     // CAR WHEEL TWO **************************
     push();
-    ellipse( carPosX + 100, carPosY + 50, 25, 10 );
+    // move the position of the wheel
+    // to rotate
+    translate( wheelPosX + 100, wheelPosY );
+    // rotate wheel based on wheelAngle
+    rotate( wheelAngle );
+    ellipse( 0, 0, 25, 10 );
+    wheelPosX = wheelPosX + 2;
     pop();
 
     // END CAR WHEEL TWO **********************
+
+    // RUNNING PERSON *************************
+    push();
+    // head,
+    // moving at rate of car
+    ellipse( personPosX, personPosY + 20, 10 );
+    personPosX = personPosX + 4
+
+
+    pop();
+
 }
