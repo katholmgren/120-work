@@ -1,9 +1,9 @@
-// Aurora Borealis
+// Aurora Borealis (Northern Lights)
 
 // Declare variables
 var streak = {}
-var pinkLight = 255
-
+var r = 0
+var g = 0
 
 function setup(){
   // Create a canvas
@@ -14,20 +14,25 @@ function setup(){
 
 // Update
   streak.posX = random( 0, 200 );
-  streak.posY = random( 10, 350)
+  streak.posY = random( 10, 350);
 
 }
 
 function draw(){
-  // Draw a big line
 
-  stroke('rgba( 0, 255, 10, .1 )');
+  // Set aurora stroke color to pink or green based off mouseY position
+  r = map(mouseY, 0, height/2, 0, 255);
+  g = map(mouseY, height/2, height, 0, 255);
+  stroke(r, g, 0);
+  //('rgba( r, 0, 0, .1)');
   strokeWeight( 10 );
+  // Aurora line
   line( streak.posX, streak.posY, streak.posX, streak.posY + random( 50, 200) );
 
-streak.posX += random(5);
+  // Move aurora
+  streak.posX += random(5);
 
-streak.posY += random( -10, 10 );
+  streak.posY += random( -10, 10 );
 
 
 }
