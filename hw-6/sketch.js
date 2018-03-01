@@ -1,20 +1,21 @@
 // Aurora Borealis (Northern Lights)
 
+
 // Declare variables
 var streak = {}
+var r = 255;
+var g = 0;
 
 
 function setup(){
-  // Create a canvas
-  createCanvas( windowWidth, windowHeight );
-  // Set background to black
+  // Create a canvas the size of the window
+  createCanvas( windowWidth, windowHeight);
+  // Set background to black (night time)
   background( 0 );
+  // Set frame rate
   frameRate( 10 );
 
-  var r = 255;
-  var g = 0;
-
-// Update
+// Update Aurora starting point
   streak.posX = random( 0, 200 );
   streak.posY = random( 10, 350);
 
@@ -22,25 +23,21 @@ function setup(){
 
 function draw(){
 
-  // Set aurora stroke color to pink or green based off mouseY position
+  // Set Aurora Constrain X variable
+  let xc = constrain( streak.posX, 0, windowWidth - 100 );
+
+  // Set Aurora stroke color to red or green based off mouseY position
   r = map( mouseY, 0, height, 0, 255 );
-
-  // TROUBLESHOOTING  *********************
-  g = map( mouseY, 0, height - 200, 255, 0 );
-  //if (mouseY > 0 && mouseY < height/2 ){
-  //let r = ('red')
-  // *************************************
-
-  stroke(r, g, 0, 20);
-
-  strokeWeight( 10 );
+  g = map( mouseY, 0, height, 255, 0 );
+  // Color the line
+  stroke( r, g, 0, 10 );
+  // Set thickness of line
+  strokeWeight( 15 );
   // Aurora line
-  line( streak.posX, streak.posY, streak.posX, streak.posY + random( 50, 200) );
+  line( xc, streak.posY, xc, streak.posY + random( 50, 200) );
 
-  // Move aurora
+  // Update postion of Aurora
   streak.posX += random(5);
-
   streak.posY += random( -10, 10 );
-
 
 }
