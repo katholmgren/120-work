@@ -13,7 +13,7 @@ function setup(){
   // Set background to black (night time)
   background( 0 );
   // Set frame rate
-  frameRate( 10 );
+  frameRate( 50 );
 
 // Update Aurora starting point
   streak.posX = random( 0, 200 );
@@ -23,8 +23,6 @@ function setup(){
 
 function draw(){
 
-  // Set Aurora Constrain X variable
-  let xc = constrain( streak.posX, 0, windowWidth - 100 );
 
   // Set Aurora stroke color to red or green based off mouseY position
   r = map( mouseY, 0, height, 0, 255 );
@@ -34,10 +32,13 @@ function draw(){
   // Set thickness of line
   strokeWeight( 15 );
   // Aurora line
-  line( xc, streak.posY, xc, streak.posY + random( 50, 200) );
+  line( streak.posX, streak.posY, streak.posX, streak.posY + random( 50, 200) );
 
   // Update postion of Aurora
   streak.posX += random(5);
   streak.posY += random( -10, 10 );
+
+  // Repeat Aurora
+  streak.posX = streak.posX % width;
 
 }
