@@ -1,8 +1,8 @@
-// Apples, Oranges, Bananas, and Fruitflies
+// Apples, Lemons, and Fruitflies
 
 function setup() {
 	// Create a nice sized canvas
-	createCanvas( windowWidth, 400 );
+	createCanvas( windowWidth, windowHeight );
 }
 
 function draw() {
@@ -15,12 +15,14 @@ function draw() {
 	// Set initial values for fruitflies
   let x = 0;
   let y = 0;
+	let flyX = 0;
+	let flyY = 0;
+
 
 	// Set background to white
 	background( 255 );
 
-//
-
+	// FRUIT BOX
 	push();
 	// APPLES
 	// To appear when the mouse is on the left half of the canvas
@@ -29,42 +31,60 @@ function draw() {
 		for ( let y = circleSize; y < height; y += pad) {
 		for ( let x = circleSize; x < width; x += pad) {
 			// Draw apples
-			fill( 255, random(255), 140 );
+			// Set apple color
+			fill( 255, random(100), random(200) );
+			// Turn off stroke
       noStroke();
+			// Set apple shape
 			ellipse( x, y, circleSize, circleSize );
+			// Apple highlight
+			fill( 255 );
+			ellipse( x + 10, y - 10, 10 );
+			// Apple stem
+			fill( random(100), 255, random(200) );
       triangle( x, y - circleSize/2, x - 5, y - circleSize/2 -10, x +5, y - circleSize/2 -10);
     	}
-		}
+		} // END APPLES
 
-		// BANANAS
+		// LEMONS
 		// To appear when the mouse is on the right half of the canvas
 	} else if ( mouseX > width*.5) {
-			// Draw multiples bananas on the x and y axises
+			// Draw multiples lemons on the x and y axises
     	for ( let y = circleSize; y < height; y += pad) {
   		for ( let x = circleSize; x < width; x += pad) {
-				// Draw bananas
-  			fill( 255, 255, 50 );
+				// Draw lemons
+				// Turn off stroke for lemon border
 				noStroke();
-  			ellipse( x, y, circleSize + 10, circleSize + 20 );
-        fill( 255 );
-				ellipse( x + 10, y + 5, circleSize + 10 );
+				// Box to add stroke for lemon stem
+				push();
+				// Set lemon color
+				fill( 255, 255, random(200) );
+				// Set lemon shape
+				ellipse( x, y, circleSize + 10, circleSize + 20 );
+				// Lemon highlight
+				fill( 255 );
+				ellipse( x - 10, y + 10, 10 )
+				// Lemon stem
+				stroke( 143, 70, 29 );
+				strokeWeight( 3 );
+				line( x + circleSize/3 + 4, y - circleSize/2, x + circleSize/3 + 5, y - circleSize/2 -10 );
+				pop(); // End lemon stem stroke box
     		}
   		}
-		}
-pop();
+		} // END LEMONS
+
+pop(); // END FRUIT BOX
 
 // FRUIT FLIES
 if( mouseX < width){
 	// Set number of fruit flies
-	for( let x = 0; x < width; x += 10 ){
+	for( let flyX = 0; flyX < width; flyX += 10 ){
 		// Generate fruit flies around mouse position
-			let x = mouseX * random( 5, -5 );
-			let y = mouseY * random( 5, - 5 );
+			let flyX = mouseX + random( 150, -150 );
+			let flyY = mouseY + random( 150, - 150 );
 			strokeWeight( 5 );
-			point( x, y );
+			point( flyX, flyY );
 	}
-
-
 }
 
 }
