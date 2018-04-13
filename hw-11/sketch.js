@@ -48,7 +48,7 @@ class Rice {
         this.y = y;
     }
 
-  // Method that makes rice "expand"
+  // Method that makes the rice "expand"
     expand() {
         this.x = this.x + random( -3, 3 );
         this.y = this.y + random( -3, 3 );
