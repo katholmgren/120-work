@@ -1,22 +1,23 @@
-// Bouncing rects
+// Bouncing vines
 // Week 12
 
 
-// create a variable for the rect object
-let rects = [];
-const numOfRects = 10;
+// create a variable for the vine object
+let vines = [];
+const numOfVines = 10;
 
 function setup() {
     // createCanvas(windowWidth, windowHeight);
     createCanvas(windowWidth, 800);
+        background('rgb(0, 41, 45)');
 
-    // create a new rect object of class type "rect"
-    let init_x = 60;
-    let init_y = 60;
-    for (let i = 0; i < numOfRects; i++) {
-        rects.push(new Rect(init_x, init_y));
+    // create a new vine object of class type "vine"
+    let init_x = random(400);
+    let init_y = random(400);
+    for (let i = 0; i < numOfVines; i++) {
+        vines.push(new Vine(init_x, init_y));
         // move the starting position over
-        // This is to ensure that the rects do not start
+        // This is to ensure that the vines do not start
         // "on top" of each other
         init_x += 100;
         if (init_x > width) {
@@ -27,13 +28,12 @@ function setup() {
 }
 
 function draw() {
-    background('rgb(66, 57, 66)');
 
-    for (let i = 0; i < rects.length; i++) {
-        // call the rect's methods
-        rects[i].rectCheck(rects, i);
-        rects[i].edgeCheck();
-        rects[i].move();
-        rects[i].display();
+    for (let i = 0; i < vines.length; i++) {
+        // call the vine's methods
+    //    vines[i].vineCheck(vines, i);
+        vines[i].edgeCheck();
+        vines[i].move();
+        vines[i].display();
     }
 }
