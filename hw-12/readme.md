@@ -6,7 +6,7 @@ For this homework cycle, we were to use object-oriented programming again and th
 
 ## Steps
 
-I made a class for "Vines" in its own separate file, with a constructor, display, move, edgeCheck, and vineCheck section. This was very similar to the bouncing ball sketch from class. Then I called it in the draw and setup function in the sketch.js file. The index.html file loaded both. When dots pass over other dots, they switch colors to an olive green. So while the "vines" keep switching to mint when they hit the borders, the olive green color is maintained because the colors switch upon collision.
+I made a class for "Vines" in its own separate file, with a constructor, display, move, and edgeCheck method. This was very similar to the bouncing ball sketch from class. Then I called it in the draw and setup function in the sketch.js file. The index.html file loaded both. When dots pass over other dots, they switch colors to regular green. So while the "vines" keep switching to mint and olive green when they hit the borders, the green color is maintained because the colors switch upon collision. It also increases in size by five pixels every time it collides.
 
 ## Issues
 
@@ -19,3 +19,6 @@ I think the idea of a coded botanical garden would be legit. Like with actual gr
 Here is a picture of my sketch:
 
 ![Image of hw-12](hw-12_img.png)
+
+(over time):
+![Image 2 of hw-12](hw-12_img2.png)
