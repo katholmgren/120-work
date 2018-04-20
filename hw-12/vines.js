@@ -1,11 +1,11 @@
 //////////////////////////////////////////////////
-//      vine CLASS DEFINITION
+//      Vine Class
 //////////////////////////////////////////////////
 class Vine {
     constructor(x, y, size) {
         this.color = 'green';
         this.size = random(-5, 5);
-        this.rad = this.size
+        this.rad = this.size / 2;
         this.posX = x;
         this.posY = y;
         this.deltaX = random(-10, 2);
@@ -43,14 +43,13 @@ class Vine {
     }
 
 
-    reckCheck( otherBalls, myId ) {
-        // for loop touches each of the balls in the array
-        for (let n = 0; n < otherRecks.length; n++) {
-            // if n != myId, then check for touching
-            // otherwise, its ME and we need to skip
+    vineCheck( otherVines, myId ) {
+        // for loop touches each of the 'vines' in the array
+        for (let n = 0; n < otherVines.length; n++) {
+
             if( n != myId ) {
-                let d = dist( this.posX, this.posY, otherRecks[n].posX, otherRecks[n].posY );
-                let combinedR = this.rad + otherRecks[n].rad;
+                let d = dist( this.posX, this.posY, otherVines[n].posX, otherVines[n].posY );
+                let combinedR = this.rad + otherVines[n].rad;
 
                 if( d <= combinedR ) {
                     this.deltaX *= -1;

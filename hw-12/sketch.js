@@ -4,7 +4,7 @@
 
 // create a variable for the vine object
 let vines = [];
-const numOfVines = 10;
+const numOfVines = 50;
 
 function setup() {
     // createCanvas(windowWidth, windowHeight);
@@ -35,5 +35,6 @@ function draw() {
         vines[i].edgeCheck();
         vines[i].move();
         vines[i].display();
+        vines[i].vineCheck( 50, 1);
     }
 }
