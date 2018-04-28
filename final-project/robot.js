@@ -38,8 +38,17 @@ pop();
 
       move() {
           // move dots
-          this.posX += this.deltaX;
-          this.posY += this.deltaY;
+          if (keyIsDown(LEFT_ARROW)) {
+            this.posX -= this.deltaX;
+          }
+
+          if (keyIsDown(RIGHT_ARROW)) {
+            this.posX += this.deltaX;
+          }
+
+          if (keyIsDown(UP_ARROW)) {
+            this.posY -= this.deltaY;
+          }
       }
 
       edgeCheck() {
@@ -55,4 +64,3 @@ pop();
 
     }
   }
-  
