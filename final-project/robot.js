@@ -3,21 +3,17 @@
 //////////////
 
 class Robot {
-constructor(init_x, init_y, img){
-    this.pos = {
-        x: init_x,
-        y: init_y
-    };
-
+constructor( initX, initY, img ){
+    this.posX = initX;
+    this.posY = initY;
     // Reference to robot image in memory
     this.image = img;
     // Size of robot
     this.size = {
-        w: 45,
-        h: 70
+        w: 250,
+        h: 300
     };
-    this.posX = 0;
-    this.posY = 0;
+
     this.deltaX = 2;
     this.deltaY = 2;
   }
