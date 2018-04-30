@@ -1,14 +1,14 @@
 //////////////
-// ROBOT CLASS
+// KATIE CLASS
 //////////////
 
-class Robot {
+class Katie {
 constructor( initX, initY, img ){
     this.posX = initX;
     this.posY = initY;
-    // Reference to robot image in memory
+    // Reference to katie image in memory
     this.image = img;
-    // Size of robot
+    // Size of katie image
     this.size = {
         w: 250,
         h: 300
@@ -33,11 +33,12 @@ display() {
     }
 
 
-
-//TO DO:  add momemntum, rotate robot instead of move robot?
-
     move() {
-      // move robot
+
+      //TODO:add momemntum, rotate katie instead of move katie?
+
+      // move katie
+      // dependent on arrow keys
       if (keyIsDown(LEFT_ARROW)) {
         this.posX -= this.deltaX;
       }
@@ -56,6 +57,7 @@ display() {
     }
 
     edgeCheck() {
+      // keep katie in the canvas
         this.xc = constrain(this.posX, 0, width -this.size.w);
         this.yc = constrain(this.posY, 0, height -this.size.h);
     }

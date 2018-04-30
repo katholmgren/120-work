@@ -3,44 +3,45 @@
 //////////////////
 
 class Alien {
-    constructor( x, y, img1 ){
-    // Cool Groovy Bouncing alien
+    constructor( firstX, firstY, img1 ){
+      this.posX = firstX;
+      this.posY = firstY;
+      // Reference to alien image in memory
+      this.image = img1;
+      // Size of alien
+      this.size = {
+          w: 250,
+          h: 300
+      };
 
-    // Set starting alien properties
-
-    this.size = 100;
-    this.x = 75;
-    this.y = 100;
-    this.delta_x = 1;
-    this.delta_y = 1;
-    this.scale_x = 1;
-    this.scale_y = 1;
-    this.image = img1;
+      this.deltaX = 2;
+      this.deltaY = 2;
 
 }
 
   display(){
     push();
     image(
-    // Reference to image in memory
+    // Reference to Alien image in memory
     this.image,
-    // placement of image on canvas
-    // (handled by translate())
-    0, 0,
+    // placement of Alien image on canvas
+    this.posX, this.posY,
     // The display size of the image
-    this.size, this.size,
+    this.size.w, this.size.h,
     );
     pop();
     }
 
 
-    move(){
-        // Update position of alien
-        this.x += this.delta_x * this.scale_x;
-        this.y += this.delta_y * this.scale_y;
-
+  move(){
+      //Update position of alien
+      this.posX += this.deltaX;
+      this.posY += this.deltaY;
+    }
 }
-}
 
-
-// TODO: find alien image(img1), preload, index alien class, run for loop for aliens
+// FOR FUTURE USE? :
+  //edgeCheck() {
+  //  this.x = constrain(this.posX, 0, width);
+  //  this.y = constrain(this.posY, 0, height);
+//}
