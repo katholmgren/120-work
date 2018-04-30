@@ -10,12 +10,12 @@ class Alien {
       this.image = img1;
       // Size of alien
       this.size = {
-          w: 250,
-          h: 300
+          w: 50,
+          h: 70
       };
 
-      this.deltaX = 2;
-      this.deltaY = 2;
+      this.deltaX = random(-2, 2);
+      this.deltaY = random(-2, 5);
 
 }
 
@@ -32,16 +32,20 @@ class Alien {
     pop();
     }
 
-
   move(){
       //Update position of alien
       this.posX += this.deltaX;
       this.posY += this.deltaY;
     }
-}
 
-// FOR FUTURE USE? :
-  //edgeCheck() {
-  //  this.x = constrain(this.posX, 0, width);
-  //  this.y = constrain(this.posY, 0, height);
-//}
+  edgeCheck(){
+    // check if the "vine" has hit a wall
+    if (this.posX >= width || this.posX <= 0) {
+        this.deltaX *= -1;
+    }
+    // check other walls
+    if (this.posY >= height || this.posY <= 0) {
+        this.deltaY *= -1;
+  }
+}
+}

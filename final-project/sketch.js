@@ -3,7 +3,7 @@ let img;
 let img1;
 let katie;
 let aliens = [];
-const numOfAliens = 15;
+const numOfAliens = 5;
 
 function preload(){
     // Katie image is "img"
@@ -42,5 +42,6 @@ function draw(){
       for (let i = 0; i < aliens.length; i++) {
       aliens[i].display();
       aliens[i].move();
+      aliens[i].edgeCheck();
       }
   }

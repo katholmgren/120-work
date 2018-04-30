@@ -10,8 +10,8 @@ constructor( initX, initY, img ){
     this.image = img;
     // Size of katie image
     this.size = {
-        w: 250,
-        h: 300
+        w: 100,
+        h: 140
     };
 
     this.deltaX = 2;
