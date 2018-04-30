@@ -39,9 +39,8 @@ function draw(){
       katie.edgeCheck();
 
       // Aliens methods
-      //for (let i = 0; i < aliens.length; i++) {
-      //aliens[i].display();
-    //  aliens[i].move();
-    //  }
+      for (let i = 0; i < aliens.length; i++) {
+      aliens[i].display();
+      aliens[i].move();
+      }
   }
-//}
