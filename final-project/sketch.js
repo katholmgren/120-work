@@ -2,6 +2,7 @@
 let img;
 let img1;
 let katie;
+let laser = [];
 let aliens = [];
 const numOfAliens = 5;
 
@@ -13,9 +14,10 @@ function preload(){
 }
 
 function setup(){
-    createCanvas( windowWidth, windowHeight );
+    createCanvas( windowWidth, 700 );
     // Astro Katie avatar
     katie = new Katie( width/2, height/2, img);
+    //laser = new Laser( 100, 100 );
 
     // Aliens start at random positions on canvas
     let firstX = random(50);
@@ -34,6 +36,11 @@ function setup(){
 function draw(){
       background( 0 );
       //Katie astronaut methods
+      for (let i = 0; i < laser.length; i++) {
+      laser[i].display();
+      laser[i].move();
+    }
+
       katie.display();
       katie.move();
       katie.edgeCheck();
@@ -45,3 +52,9 @@ function draw(){
       aliens[i].edgeCheck();
       }
   }
+
+  function keyPressed(){
+    if (key === " "){
+      laser.push( new Laser( katie.posX - 15, katie.posY + 35 ));
+    }
+}

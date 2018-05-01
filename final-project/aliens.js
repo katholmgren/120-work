@@ -10,8 +10,8 @@ class Alien {
       this.image = img1;
       // Size of alien
       this.size = {
-          w: 50,
-          h: 70
+          w: 75,
+          h: 75
       };
 
       this.deltaX = random(-2, 2);

@@ -10,8 +10,8 @@ constructor( initX, initY, img ){
     this.image = img;
     // Size of katie image
     this.size = {
-        w: 100,
-        h: 140
+        w: 125,
+        h: 150
     };
 
     this.deltaX = 2;
@@ -61,4 +61,19 @@ display() {
         this.xc = constrain(this.posX, 0, width -this.size.w);
         this.yc = constrain(this.posY, 0, height -this.size.h);
     }
- }
+}
+
+
+
+/*emergenC:
+shoot(){
+  function keyPressed() {
+    if (keyCode === 32) {
+
+    stroke( "red");
+    line( this.posX, this.posY + (this.size.h/8), this.posX -20, this.posY + (this.size.h/8) );
+  } else {
+    return false;
+  }
+}
+}/*/
