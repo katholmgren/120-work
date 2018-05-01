@@ -9,13 +9,15 @@ class Alien {
       // Reference to alien image in memory
       this.image = img1;
       // Size of alien
-      this.size = {
-          w: 75,
-          h: 75
-      };
+    //  this.size = {
+    //      w: 75,
+    //      h: 75
+      //};
+      this.rad = 37;
 
       this.deltaX = random(-2, 2);
       this.deltaY = random(-2, 5);
+      this.toDie = false;
 
 }
 
@@ -27,7 +29,7 @@ class Alien {
     // placement of Alien image on canvas
     this.posX, this.posY,
     // The display size of the image
-    this.size.w, this.size.h,
+    this.rad * 2, this.rad * 2,
     );
     pop();
     }
@@ -47,5 +49,11 @@ class Alien {
     if (this.posY >= height || this.posY <= 0) {
         this.deltaY *= -1;
   }
+}
+
+dead(){
+  this.toDie = true;
+
+
 }
 }

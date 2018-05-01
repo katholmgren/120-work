@@ -14,7 +14,7 @@ function preload(){
 }
 
 function setup(){
-    createCanvas( windowWidth, 700 );
+    createCanvas( windowWidth, windowHeight );
     // Astro Katie avatar
     katie = new Katie( width/2, height/2, img);
     //laser = new Laser( 100, 100 );
@@ -37,6 +37,13 @@ function draw(){
       background( 0 );
       //Katie astronaut methods
       for (let i = 0; i < laser.length; i++) {
+        for (let j = 0; j < aliens.length; j++) {
+          if (laser[i].hit(aliens[j]), i){
+            console.log ("BOOM");
+            aliens[j].dead();
+          }
+        }
+
       laser[i].display();
       laser[i].move();
     }
@@ -51,10 +58,18 @@ function draw(){
       aliens[i].move();
       aliens[i].edgeCheck();
       }
+
+
+
   }
 
   function keyPressed(){
     if (key === " "){
       laser.push( new Laser( katie.posX - 15, katie.posY + 35 ));
     }
+    for (let i = 0; i < aliens.length; i++) {
+      if (aliens[i].toDie){
+        aliens.splice(i, i);
+      }
+}
 }
