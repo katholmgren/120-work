@@ -35,15 +35,43 @@ function setup(){
 
 function draw(){
       background( 0 );
+      katie.display();
+      katie.move();
+      katie.edgeCheck();
+
+
+    // Aliens methods
+      for (let i = 0; i < aliens.length; i++) {
+      aliens[i].display();
+      aliens[i].move();
+      aliens[i].edgeCheck();
+      }
+
+/*
+// NEW-- DOES NOT WORK, but should? >>>>>>>>>>>>>>
+      for (let = 0; i< laser.length; i++){
+        laser[i].display();
+        laser[i].move();
+        for (let idx = 0; idx< aliens.length; idx++){
+          if (laser[i].hit(aliens[idx])){
+            aliens[idx].dead();
+    }
+  }
+}
+/*/
+
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+
+// OLD-- SORT OF WORKS BUT DOESNT>>>>>>>>>>>>>
+
       //Katie astronaut methods
      for (let idx = 0; idx < laser.length; idx++) {
-       for (let i = 0; i < aliens.length; i++) {
-
-      //  for (var i = aliens.length - 1; i >= 0; i--) {
+       for (let i = aliens.length - 1; i >= 0; i--) {
 
           if (laser[idx].hit(aliens[i])) {
-          aliens[i].splice(i, 1);
-          console.log('HIT');
+          aliens.splice(i, 1);
           }
         }
 
@@ -51,19 +79,7 @@ function draw(){
       laser[idx].move();
 
         }
-
-      katie.display();
-      katie.move();
-      katie.edgeCheck();
-
-      // Aliens methods
-      for (let i = 0; i < aliens.length; i++) {
-      aliens[i].display();
-      aliens[i].move();
-      aliens[i].edgeCheck();
-      }
-  }
-
+}
 
   function keyPressed(){
     if (key === " "){

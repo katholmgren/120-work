@@ -12,7 +12,7 @@ class Alien {
 
       this.deltaX = random(-2, 2);
       this.deltaY = random(-2, 5);
-      this.toDie = false;
+    //  this.toDie = false;
 
 }
 
@@ -46,8 +46,9 @@ class Alien {
   }
 }
 
-  //dead(){
-  //this.toDie = true;
-//}
-
-}
+  }
+/*
+    dead(){
+      this.toDie = true;
+      }
+/*/
