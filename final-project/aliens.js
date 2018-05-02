@@ -8,11 +8,6 @@ class Alien {
       this.posY = firstY;
       // Reference to alien image in memory
       this.image = img1;
-      // Size of alien
-    //  this.size = {
-    //      w: 75,
-    //      h: 75
-      //};
       this.rad = 37;
 
       this.deltaX = random(-2, 2);
@@ -51,9 +46,8 @@ class Alien {
   }
 }
 
-dead(){
-  this.toDie = true;
+  //dead(){
+  //this.toDie = true;
+//}
 
-
-}
 }

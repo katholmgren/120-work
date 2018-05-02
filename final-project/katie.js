@@ -34,9 +34,6 @@ display() {
 
 
     move() {
-
-      //TODO:add momemntum, rotate katie instead of move katie?
-
       // move katie
       // dependent on arrow keys
       if (keyIsDown(LEFT_ARROW)) {
@@ -62,18 +59,3 @@ display() {
         this.yc = constrain(this.posY, 0, height -this.size.h);
     }
 }
-
-
-
-/*emergenC:
-shoot(){
-  function keyPressed() {
-    if (keyCode === 32) {
-
-    stroke( "red");
-    line( this.posX, this.posY + (this.size.h/8), this.posX -20, this.posY + (this.size.h/8) );
-  } else {
-    return false;
-  }
-}
-}/*/

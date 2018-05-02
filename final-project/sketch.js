@@ -14,10 +14,9 @@ function preload(){
 }
 
 function setup(){
-    createCanvas( windowWidth, windowHeight );
+    createCanvas( windowWidth, windowHeight -10 );
     // Astro Katie avatar
     katie = new Katie( width/2, height/2, img);
-    //laser = new Laser( 100, 100 );
 
     // Aliens start at random positions on canvas
     let firstX = random(50);
@@ -30,23 +29,28 @@ function setup(){
         if (firstX > width) {
           firstX = 60;
           firstY += 100;
-      }
-}}
+        }
+  }
+}
 
 function draw(){
       background( 0 );
       //Katie astronaut methods
-      for (let i = 0; i < laser.length; i++) {
-        for (let j = 0; j < aliens.length; j++) {
-          if (laser[i].hit(aliens[j]), i){
-            console.log ("BOOM");
-            aliens[j].dead();
+     for (let idx = 0; idx < laser.length; idx++) {
+       for (let i = 0; i < aliens.length; i++) {
+
+      //  for (var i = aliens.length - 1; i >= 0; i--) {
+
+          if (laser[idx].hit(aliens[i])) {
+          aliens[i].splice(i, 1);
+          console.log('HIT');
           }
         }
 
-      laser[i].display();
-      laser[i].move();
-    }
+      laser[idx].display();
+      laser[idx].move();
+
+        }
 
       katie.display();
       katie.move();
@@ -58,18 +62,11 @@ function draw(){
       aliens[i].move();
       aliens[i].edgeCheck();
       }
-
-
-
   }
+
 
   function keyPressed(){
     if (key === " "){
       laser.push( new Laser( katie.posX - 15, katie.posY + 35 ));
     }
-    for (let i = 0; i < aliens.length; i++) {
-      if (aliens[i].toDie){
-        aliens.splice(i, i);
-      }
-}
-}
+  }
