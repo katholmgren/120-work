@@ -40,6 +40,25 @@ function draw(){
       katie.edgeCheck();
 
 
+
+      // Funky splicing
+     for (let idx = laser.length - 1; idx >= 0; idx--) {
+       laser[idx].display();
+       laser[idx].move();
+       if (laser[idx].offscreen()) {
+         laser.splice(idx, 1);
+       } else {
+         for (let i = aliens.length - 1; i >= 0; i--) {
+
+          if (laser[idx].hit(aliens[i])) {
+          laser.splice(idx, 1);
+          aliens.splice(i, 1);
+          break;
+          }
+        }
+      }
+    }
+
     // Aliens methods
       for (let i = 0; i < aliens.length; i++) {
       aliens[i].display();
@@ -47,42 +66,12 @@ function draw(){
       aliens[i].edgeCheck();
       }
 
-/*
-// NEW-- DOES NOT WORK, but should? >>>>>>>>>>>>>>
-      for (let = 0; i< laser.length; i++){
-        laser[i].display();
-        laser[i].move();
-        for (let idx = 0; idx< aliens.length; idx++){
-          if (laser[i].hit(aliens[idx])){
-            aliens[idx].dead();
-    }
-  }
 }
-/*/
 
-//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
-
-
-// OLD-- SORT OF WORKS BUT DOESNT>>>>>>>>>>>>>
-
-      //Katie astronaut methods
-     for (let idx = 0; idx < laser.length; idx++) {
-       for (let i = aliens.length - 1; i >= 0; i--) {
-
-          if (laser[idx].hit(aliens[i])) {
-          aliens.splice(i, 1);
-          }
-        }
-
-      laser[idx].display();
-      laser[idx].move();
-
-        }
-}
 
   function keyPressed(){
     if (key === " "){
       laser.push( new Laser( katie.posX - 15, katie.posY + 35 ));
     }
-  }
+
+   }
