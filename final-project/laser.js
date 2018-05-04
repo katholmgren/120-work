@@ -24,7 +24,7 @@ class Laser{
 
   hit( alien ) {
           let d = dist( this.x, this.y, alien.posX, alien.posY );
-            if (d < alien.rad){
+            if (d < alien.rad *2){
               //console.log('HIT');
               return true;
             } else {

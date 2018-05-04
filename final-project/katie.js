@@ -8,17 +8,16 @@ constructor( initX, initY, img ){
     this.posY = initY;
     // Reference to katie image in memory
     this.image = img;
-    // Size of katie image
-    this.size = {
-        w: 125,
-        h: 150
-    };
+    // Half-Size of katie image
+    this.rad = {
+      w: 63,
+      h: 75
+    }
 
     this.deltaX = 2;
     this.deltaY = 2;
-    this.rad = 75;
-  //  this.ouch = false;
-  }
+
+    }
 
 display() {
     push();
@@ -29,7 +28,7 @@ display() {
     // (handled by translate())
     this.xc, this.yc,
     // The display size of the image
-    this.size.w, this.size.h,
+    this.rad.w *2, this.rad.h *2,
     );
     pop();
     }
@@ -57,22 +56,20 @@ display() {
 
     edgeCheck() {
       // keep katie in the canvas
-        this.xc = constrain(this.posX, 0, width -this.size.w);
-        this.yc = constrain(this.posY, 0, height -this.size.h);
+        this.xc = constrain(this.posX, 0, width -this.rad.w*2);
+        this.yc = constrain(this.posY, 0, height -this.rad.h*2);
     }
 
-  //  remove(){
-  //    this.ouch = true;
-  //  }
 
 
-    hits( alien ){
-      let d = dist( this.posX, this.posY, alien.posY, alien.posY );
-        if (d < this.rad + alien.rad){
-          //console.log('HIT');
-         return true;
-        } else {
-         return false;
-          }
-        }
+hits( alien ){
+
+ let d = dist( this.posX + this.rad.w, this.posY + this.rad.h,(alien.posX + alien.rad), (alien.posY +alien.rad));
+      if (d < this.rad.w + alien.rad){
+    //console.log('HIT');
+      return true;
+    } else {
+     return false;
     }
+}
+}
