@@ -1,4 +1,10 @@
 
+// TODO: Fix aliens only deleting sometimes
+// TODO: Stop sketch if alien hits Katie, game over screen
+// TODO: Levels
+// TODO: Optional sound
+
+
 let img;
 let img1;
 let katie;
@@ -12,6 +18,10 @@ function preload(){
     // Alien image is "img1"
     img1 = loadImage("./alien-pic.png")
 }
+
+let score = 0;
+let points = 100;
+let result = score + points;
 
 function setup(){
     createCanvas( windowWidth, windowHeight -10 );
@@ -39,6 +49,10 @@ function draw(){
       katie.move();
       katie.edgeCheck();
 
+      textSize( 24 );
+      fill( 255);
+      // display the equation and result
+      text(" Score: " + score, 20, 80 );
 
 
       // Funky splicing
@@ -51,6 +65,12 @@ function draw(){
          for (let i = aliens.length - 1; i >= 0; i--) {
 
           if (laser[idx].hit(aliens[i])) {
+            score += points;
+
+
+
+
+
           laser.splice(idx, 1);
           aliens.splice(i, 1);
           break;
@@ -65,9 +85,7 @@ function draw(){
       aliens[i].move();
       aliens[i].edgeCheck();
       }
-
 }
-
 
   function keyPressed(){
     if (key === " "){

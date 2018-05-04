@@ -3,15 +3,14 @@ class Laser{
   constructor( x, y ){
     this.x = x;
     this.y = y;
-    this.rad = 5;
-  //  this.disappear = false;
+
   }
 
   display(){
     push();
-    noStroke();
-    fill(255, 0, 0 );
-    ellipse( this.x, this.y, this.rad * 2);
+    strokeWeight(10);
+    stroke(255, 0, 0 );
+    point( this.x, this.y);
     pop();
   }
 
@@ -25,7 +24,7 @@ class Laser{
 
   hit( alien ) {
           let d = dist( this.x, this.y, alien.posY, alien.posY );
-            if (d < this.rad + alien.rad){
+            if (d < alien.rad){
               //console.log('HIT');
               return true;
             } else {
