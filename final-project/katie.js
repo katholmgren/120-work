@@ -16,6 +16,8 @@ constructor( initX, initY, img ){
 
     this.deltaX = 2;
     this.deltaY = 2;
+    this.rad = 75;
+  //  this.ouch = false;
   }
 
 display() {
@@ -58,4 +60,19 @@ display() {
         this.xc = constrain(this.posX, 0, width -this.size.w);
         this.yc = constrain(this.posY, 0, height -this.size.h);
     }
-}
+
+  //  remove(){
+  //    this.ouch = true;
+  //  }
+
+
+    hits( alien ){
+      let d = dist( this.posX, this.posY, alien.posY, alien.posY );
+        if (d < this.rad + alien.rad){
+          //console.log('HIT');
+         return true;
+        } else {
+         return false;
+          }
+        }
+    }

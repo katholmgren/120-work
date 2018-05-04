@@ -18,12 +18,12 @@ class Laser{
     this.x = this.x -10;
   }
 
-  remove(){
-    this.disappear = true;
-  }
+  //remove(){
+    //this.disappear = true;
+  //}
 
   hit( alien ) {
-          let d = dist( this.x, this.y, alien.posY, alien.posY );
+          let d = dist( this.x, this.y, alien.posX, alien.posY );
             if (d < alien.rad){
               //console.log('HIT');
               return true;
