@@ -1,8 +1,6 @@
 
-// TODO: Fix aliens only deleting sometimes
-// TODO: Stop sketch if alien hits Katie, game over screen
-// TODO: Levels
 // TODO: Optional sound
+// TODO: "you win!" screen?
 
 
 let img;
@@ -101,7 +99,14 @@ function draw(){
       aliens[i].move();
       aliens[i].edgeCheck();
       }
-}
+
+      // win screen
+      if (score >= 2000){
+        textSize( 36 );
+        text( "YOU WIN!", width/2 - 100, height/2);
+        }
+      }
+
 
   // new laser when space bar is pressed
   function keyPressed(){
