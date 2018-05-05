@@ -14,7 +14,10 @@ function preload(){
     // katie image is "img"
     img = loadImage( "./space-kt-pic.png" );
     // alien image is "img1"
-    img1 = loadImage( "./alien-pic.png" )
+    img1 = loadImage( "./alien-pic.png" );
+  //  pew = loadSound("./pew.m4a");
+  //  pop = loadSound("./pop.m4a");
+  //  warning = loadSound("./warning.m4a");
 }
 
 
@@ -66,6 +69,7 @@ function draw(){
       for( let i = 0; i < aliens.length; i++ ) {
         if(katie.hits(aliens[i])) {
           score *= 0;
+      //    play( pop );
       }
     }
 
