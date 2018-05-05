@@ -1,6 +1,8 @@
+// Katherine Holmgren
+// Final Project, MART 120
+// "Katie v. Aliens"
+// katholmgren.github.io/120-work/finalproject
 
-// TODO: Optional sound
-// TODO: "you win!" screen?
 
 
 let img;
@@ -11,17 +13,14 @@ let aliens = [];
 const numOfAliens = 20;
 
 function preload(){
-    // katie image is "img"
+    // Katie image is "img"
     img = loadImage( "./space-kt-pic.png" );
-    // alien image is "img1"
+    // Alien image is "img1"
     img1 = loadImage( "./alien-pic.png" );
-  //  pew = loadSound("./pew.m4a");
-  //  pop = loadSound("./pop.m4a");
-  //  warning = loadSound("./warning.m4a");
 }
 
 
-// score variables
+// Score variables
 let score = 0;
 let points = 100;
 
@@ -29,28 +28,35 @@ let points = 100;
 function setup(){
     createCanvas( windowWidth, windowHeight -10 );
 
-    // construct katie avatar
+    // Construct katie avatar
     katie = new Katie( width/2, height/2, img );
 
-    // aliens start at random positions on canvas
+    // Aliens start at random positions on canvas
     let firstX = random(50);
     let firstY = random(50);
 
-    //  construct aliens
+    // Construct aliens
     for ( let i = 0; i < numOfAliens; i++ ) {
       aliens.push( new Alien( firstX, firstY, img1 ));
-      // spread out Alien starting places
+      // Spread out Alien starting places
       firstX += 100;
         if ( firstX > width ) {
           firstX = 60;
           firstY += 100;
         }
+      }
     }
-}
 
 function draw(){
       background( 0 );
 
+      // Moving score text
+      textSize( 24 );
+      fill( 255);
+      // Display score result
+      text(" Score: " + score, 20, 80 );
+
+      // Score subtext
       textSize( 10 );
       fill( 255 );
       text( "Can you score a perfect 2000?", 25, 100 );
@@ -58,27 +64,25 @@ function draw(){
       text( "Arrows to move", 25, 140 );
       text( "Don't let the aliens hit astronaut Katie!", 25, 160 );
 
-      // score text
-      textSize( 24 );
-      fill( 255);
-      // display the equation and result
-      text(" Score: " + score, 20, 80 );
 
 
-      // katie hits an alien
-      for( let i = 0; i < aliens.length; i++ ) {
-        if(katie.hits(aliens[i])) {
-          score *= 0;
-      //    play( pop );
-      }
+    // Katie hits an alien
+    for( let i = 0; i < aliens.length; i++ ) {
+      if (katie.hits(aliens[i])) {
+
+        score*=0;
+        textSize( 24 );
+        text( '"Ouch!"', katie.posX - 50, katie.posY );
+
     }
+  }
 
-      // katie methods
+      // Katie methods
       katie.display();
       katie.move();
       katie.edgeCheck();
 
-      // alien and laser splicing
+      // Alien and laser splicing
       for ( let idx = laser.length - 1; idx >= 0; idx-- ) {
         laser[idx].display();
         laser[idx].move();
@@ -96,28 +100,21 @@ function draw(){
       }
     }
 
-
-    // alien methods
+    // Alien methods
       for ( let i = 0; i < aliens.length; i++ ) {
       aliens[i].display();
       aliens[i].move();
       aliens[i].edgeCheck();
       }
 
-      // win screen
+      // Win screen
       if (score >= 2000){
         textSize( 36 );
         text( "YOU WIN!", width/2 - 100, height/2);
-        }
-
-      // lose screen
-      if (( aliens <= 0) && (score < 2000 )){
-        textSize( 36 );
-        text( "You lose", width/2 - 100, height/2);
       }
 }
 
-  // new laser when space bar is pressed
+  // New laser when space bar is pressed
   function keyPressed(){
     if ( key === " " ){
       laser.push( new Laser( katie.posX - 15, katie.posY + 35 ));

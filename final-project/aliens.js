@@ -12,7 +12,6 @@ class Alien {
 
       this.deltaX = random(-2, 2);
       this.deltaY = random(-2, 5);
-    //  this.toDie = false;
 
 }
 
@@ -30,7 +29,7 @@ class Alien {
     }
 
   move(){
-      //Update position of alien
+      // Update position of alien
       this.posX += this.deltaX;
       this.posY += this.deltaY;
     }
@@ -40,10 +39,9 @@ class Alien {
     if (this.posX >= width || this.posX <= 0) {
         this.deltaX *= -1;
     }
-    // check other walls
+    // Check other walls
     if (this.posY >= height || this.posY <= 0) {
         this.deltaY *= -1;
       }
     }
-
 }

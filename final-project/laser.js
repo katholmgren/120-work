@@ -1,9 +1,11 @@
+//////////////////////////////
+// LASER CLASS
+//////////////////////////////
 
 class Laser{
   constructor( x, y ){
     this.x = x;
     this.y = y;
-
   }
 
   display(){
@@ -18,9 +20,6 @@ class Laser{
     this.x = this.x -10;
   }
 
-  //remove(){
-    //this.disappear = true;
-  //}
 
   hit( alien ) {
           let d = dist( this.x, this.y, alien.posX, alien.posY );
@@ -29,8 +28,8 @@ class Laser{
               return true;
             } else {
               return false;
-              }
             }
+          }
 
 offscreen (){
               if (this.x > width || this.x < 0) {

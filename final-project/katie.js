@@ -1,6 +1,6 @@
-//////////////
+/////////////////////////////
 // KATIE CLASS
-//////////////
+/////////////////////////////
 
 class Katie {
 constructor( initX, initY, img ){
@@ -24,7 +24,7 @@ display() {
     image(
     // Reference to image in memory
     this.image,
-    // placement of image on canvas
+    // Placement of image on canvas
     // (handled by translate())
     this.xc, this.yc,
     // The display size of the image
@@ -34,9 +34,9 @@ display() {
     }
 
 
-    move() {
-      // move katie
-      // dependent on arrow keys
+move() {
+      // Move katie
+      // Dependent on arrow keys
       if (keyIsDown(LEFT_ARROW)) {
         this.posX -= this.deltaX;
       }
@@ -54,22 +54,20 @@ display() {
       }
     }
 
-    edgeCheck() {
-      // keep katie in the canvas
+
+edgeCheck() {
+      // Keep katie in the canvas
         this.xc = constrain(this.posX, 0, width -this.rad.w*2);
         this.yc = constrain(this.posY, 0, height -this.rad.h*2);
     }
 
 
-
 hits( alien ){
-
  let d = dist( this.posX + this.rad.w, this.posY + this.rad.h,(alien.posX + alien.rad), (alien.posY +alien.rad));
       if (d < this.rad.w + alien.rad){
-    //console.log('HIT');
       return true;
     } else {
      return false;
     }
-}
+  }
 }
