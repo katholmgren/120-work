@@ -10,7 +10,7 @@ let img1;
 let katie;
 let laser = [];
 let aliens = [];
-const numOfAliens = 5;
+const numOfAliens = 20;
 
 function preload(){
     // katie image is "img"
@@ -27,6 +27,7 @@ let points = 100;
 
 function setup(){
     createCanvas( windowWidth, windowHeight -10 );
+
     // construct katie avatar
     katie = new Katie( width/2, height/2, img );
 
@@ -49,6 +50,13 @@ function setup(){
 function draw(){
       background( 0 );
 
+      textSize( 10 );
+      fill( 255 );
+      text( "Can you score a perfect 2000?", 25, 100 );
+      text( "Space bar to shoot", 25, 120 );
+      text( "Arrows to move", 25, 140 );
+      text( "Don't let the aliens hit astronaut Katie!", 25, 160 );
+
       // score text
       textSize( 24 );
       fill( 255);
@@ -60,14 +68,8 @@ function draw(){
       for( let i = 0; i < aliens.length; i++ ) {
         if(katie.hits(aliens[i])) {
           score *= 0;
-
-          // TROUBLE SHOOTING RECTANGLE >>>>>>>>>>>>
-          // TO TEST KATIE-ALIEN INTERACTION
-          // DELETE LATER >>>>>>>>>
-          fill( 255 );
-          rect( 100, 500, 100, 100);
-        } //// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
       }
+    }
 
       // katie methods
       katie.display();
