@@ -105,8 +105,13 @@ function draw(){
         textSize( 36 );
         text( "YOU WIN!", width/2 - 100, height/2);
         }
-      }
 
+      // lose screen
+      if (( aliens <= 0) && (score < 2000 )){
+        textSize( 36 );
+        text( "You lose", width/2 - 100, height/2);
+      }
+}
 
   // new laser when space bar is pressed
   function keyPressed(){
