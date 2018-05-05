@@ -4,6 +4,11 @@ Katherine Holmgren, 50
 
 [live link](https://katholmgren.github.io/120-work/final-project/)
 
+
+https://katholmgren.github.io/120-work/final-project/
+(text for if hyperlink is having issues)
+
+
 Originally, I intended to make a replica of asteroids with a robot instead of a ship and aliens instead of asteroids. Instead, I ended up with an astronaut version of myself and twenty hand drawn aliens. This idea came late at night when I thought to myself at 3am, "I should photoshop my face into it and have myself shoot all my final exams". I didn't stick with the finals exams idea, but I did add myself to it. Personally, I'm glad I did because I think it's a lot funnier and enjoyable to play for those who know me (and those who don't). Its more personal and has more of a story than if I had just used a robot image I found online. The images I drew also add to its humor and its "homemade" feeling. I'm quite proud of the result.
 
 This project took a lot of time and energy. Shoutout to Emily Griffin for helping me with so many errors. Also Dan Shiffman, who I don't know, but whose youtube videos I watched repeatedly throughout this process.
